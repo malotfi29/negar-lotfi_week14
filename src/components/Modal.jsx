@@ -8,8 +8,9 @@ function Modal({
   setContact,
   contact,
   addHandler,
-  alert,
+  addAlert,
   editContact,
+  
 }) {
   useEffect(() => {
     if (Object.keys(editContact).length > 0) setContact(editContact);
@@ -23,11 +24,23 @@ function Modal({
     setContact((contact) => ({ ...contact, [name]: value }));
   };
 
+  const closeBackdrop=()=>{
+    setOpenModal(false)
+    setContact({
+      id: "",
+      name: "",
+      email: "",
+      phone: "",
+      job: "",
+    });
+
+  }
+
   return (
     <>
       <div
         className={styles.backdrop}
-        onClick={() => setOpenModal(false)}
+        onClick={closeBackdrop}
       ></div>
       <div className={styles.modal}>
         <div className={styles.modalHeader}>
@@ -52,7 +65,7 @@ function Modal({
             <label htmlFor="email">ایمیل</label>
 
             <input
-              type="text"
+              type="email"
               id="email"
               name="email"
               value={contact.email}
@@ -80,17 +93,13 @@ function Modal({
               onChange={changeHandler}
             />
           </div>
-          {lengthOfEditContact ? (
+          
             <button type="submit" onClick={(e) => addHandler(e)}>
-              ویرایش
+              {lengthOfEditContact ? "ویرایش" : "افزودن"}
             </button>
-          ) : (
-            <button type="submit" onClick={(e) => addHandler(e)}>
-              افزودن
-            </button>
-          )}
+          
         </form>
-        <div>{alert && <p>{alert}</p>}</div>
+        <div className={styles.alert}>{addAlert && <p>{addAlert}</p>}</div>
       </div>
     </>
   );

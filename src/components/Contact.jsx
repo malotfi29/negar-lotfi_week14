@@ -8,7 +8,7 @@ import { RiEdit2Fill } from "react-icons/ri";
 function Contact({ contact, handlerDeletecontact,selectedContacts,setSelectedContacts,handlerEditcontact  }) {
   return (
     <li className={styles.contact}>
-      <div>
+      <div className={styles.contactName}>
         <input type="checkbox" onChange={()=>setSelectedContacts([...selectedContacts,contact.id])} />
         <p>{contact.name}</p>
       </div>
@@ -20,13 +20,13 @@ function Contact({ contact, handlerDeletecontact,selectedContacts,setSelectedCon
         <MdOutlinePhone className={styles.btn} />
         {contact.phone}
       </p>
-      <div>
+      <div className={styles.contactBtns}>
       <FaRegTrashAlt
-        className={styles.btn}
+        className={styles.btnTrash}
         onClick={() => handlerDeletecontact(contact.id)}
       />
       
-      <RiEdit2Fill className={styles.btn}  onClick={() => handlerEditcontact(contact)} />
+      <RiEdit2Fill className={styles.btnEdit}  onClick={() => handlerEditcontact(contact)} />
       </div>
     </li>
   );

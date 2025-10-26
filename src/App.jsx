@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Modal from "./components/Modal";
 
 function App() {
-  const [alert, setAlert] = useState("");
+  const [addAlert, setAddAlert] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [editContact, setEditContact] = useState({});
@@ -27,13 +27,11 @@ function App() {
 
   const addHandler = (e) => {
     e.preventDefault();
-
     if (!contact.name || !contact.email || !contact.phone || !contact.job) {
-      setAlert("Please enter valid data!");
-
+      setAddAlert("Please enter valid data!");
       return;
     }
-    setAlert("");
+    setAddAlert("");
     if (Object.keys(editContact).length > 0) {
       setContacts(
         contacts.map((c) =>
@@ -83,7 +81,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="main">
       <Header
         setOpenModal={setOpenModal}
         handleSearchContact={handleSearchContact}
@@ -96,8 +94,9 @@ function App() {
           addHandler={addHandler}
           openModal={openModal}
           setOpenModal={setOpenModal}
-          alert={alert}
+          addAlert={addAlert}
           editContact={editContact}
+          setEditContact={setEditContact}
         />
       </Header>
 
@@ -108,7 +107,7 @@ function App() {
         setSelectedContacts={setSelectedContacts}
         handlerEditcontact={handlerEditcontact}
       />
-    </>
+    </div>
   );
 }
 

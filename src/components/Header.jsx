@@ -18,21 +18,28 @@ function Header({
     <>
       {children}
 
+      
+
       <div className={styles.container}>
-        <div className={styles.search}>
-          <label htmlFor="select-contact">جستجو در مخاطبین</label>
+      <div className={styles.search}>
+          {/* <label htmlFor="select-contact">جستجو در مخاطبین</label> */}
           <input
             type="text"
             id="select-contact"
             onChange={(e) => handleSearchContact(e)}
+            placeholder="جستجو..."
           />
         </div>
+        
         <div className={styles.controls}>
-          <BiSelectMultiple
-            className={styles.btn}
-            onClick={handleDeleteContacts}
-          />
-          <CiCirclePlus className={styles.btn} onClick={handlerAdd} />
+          <div className={styles.controlDelete} onClick={handleDeleteContacts}>
+            <span>Delete Contacts</span>
+            <BiSelectMultiple className={styles.btn} />
+          </div>
+          <div className={styles.controlAdd} onClick={handlerAdd}>
+            <span>Add Contact</span>
+            <CiCirclePlus className={styles.btn} />
+          </div>
         </div>
       </div>
     </>

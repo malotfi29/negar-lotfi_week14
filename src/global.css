@@ -1,24 +1,35 @@
 :root {
+ 
+  --mint-light: #cfe9de; 
+  --mint-lighter: #e9f5ef; 
+  --mint: #8ed1b2; 
+  --mint-dark: #3c6a57; 
+  --mint-gray: #78aa92; 
+  --shadow-soft: rgba(179, 207, 193, 0.8); 
+  --white: #ffffff;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   direction: rtl;
 }
 
-
 body {
-  margin: auto;
+  background-color: var(--mint-light);
+  margin:5rem auto;
   max-width: 1000px;
   min-height: 100vh;
   padding: 10px;
-  
 }
 
+.main {
+  background-color: var(--mint-lighter);
+  border-radius: 20px;
+  box-shadow: var(--mint-dark) 0px 5px 15px;
+  overflow: hidden;
+}
