@@ -2,7 +2,7 @@
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  
+
   justify-content: space-between;
   padding: 30px;
   border-bottom: 2px solid var(--mint);
@@ -10,7 +10,6 @@
 }
 
 .search {
-  
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -51,23 +50,20 @@
   box-shadow: 0 4px 8px var(--shadow-soft);
   cursor: pointer;
   transition: all 0.3s ease;
-  
 }
 
-.controlDelete{
+.controlDelete {
   background-color: #ff6b6b;
 }
 
 .controlAdd:hover {
-    background-color: var(--mint-dark);
-    transform: translateY(-2px);
-    
+  background-color: var(--mint-dark);
+  transform: translateY(-2px);
 }
 
 .controlDelete:hover {
   background-color: #ff4c4c;
   transform: translateY(-2px);
-  
 }
 
 .btn {

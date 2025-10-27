@@ -7,7 +7,7 @@
   border-radius: 8px;
 }
 
-.noContacts{
+.noContacts {
   padding: 1rem;
   color: var(--mint-dark);
   font-weight: bold;
@@ -17,7 +17,7 @@
 .contact {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   padding: 12px 15px;
   border-radius: 8px;
@@ -26,34 +26,33 @@
   gap: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
-  
 }
 
-.contact:hover{
-    background-color: #e0f7ef;
-    
+.contact:hover {
+  background-color: #e0f7ef;
 }
 
-.contact:nth-child(odd){
-    background-color: var(--mint-light);
+.contact:nth-child(odd) {
+  background-color: var(--mint-light);
 }
 
-.contact:nth-child(even){
-    background-color: var(--mint);
+.contact:nth-child(even) {
+  background-color: var(--mint);
 }
 
-.contactName{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 0;
-    white-space:nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.contactName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contactPhone,
-.contactEmail,.contactBtns {
+.contactEmail,
+.contactBtns {
   direction: ltr;
   display: flex;
   align-items: center;
@@ -65,44 +64,43 @@
   display: none;
 }
 
-
-
-.btn,.btnTrash,.btnEdit {
+.btn,
+.btnTrash,
+.btnEdit {
   background-color: #fff;
   padding: 8px;
   font-size: 32px;
   border-radius: 50%;
- 
+
   transition: all 0.2s ease;
 }
 
-.btnEdit:hover{
-    background-color: #7bc6a4;
-    transform:translateY(-2px);
-    cursor: pointer;
+.btnEdit:hover {
+  background-color: #7bc6a4;
+  transform: translateY(-2px);
+  cursor: pointer;
 }
 
-.btnTrash{
-    color: #ff6b6b;
+.btnTrash {
+  color: #ff6b6b;
 }
-.btnTrash:hover{
-    color: #ff4c4c;
-    cursor: pointer;
-    transform:translateY(-2px);
+.btnTrash:hover {
+  color: #ff4c4c;
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 @media screen and (min-width: 480px) {
   .contact {
     font-size: 16px;
-}
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .contactPhone {
-        display: inline-flex;
-    }
-    .contact{
-      grid-template-columns: repeat(4,1fr);
-
+  .contactPhone {
+    display: inline-flex;
+  }
+  .contact {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

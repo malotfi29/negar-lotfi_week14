@@ -3,7 +3,13 @@ import styles from "./AddModal.module.css";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useForm } from "react-hook-form";
 
-function AddModal({ openAddModal, setOpenAddModal, addHandler, addAlert, editContact }) {
+function AddModal({
+  openAddModal,
+  setOpenAddModal,
+  addHandler,
+  addAlert,
+  editContact,
+}) {
   const {
     register,
     handleSubmit,

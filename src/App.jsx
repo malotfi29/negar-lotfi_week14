@@ -7,7 +7,7 @@ import DeleteModal from "./components/DeleteModal";
 function App() {
   const [addAlert, setAddAlert] = useState("");
   const [openAddModal, setOpenAddModal] = useState(false);
-  const [OpenDeleteModal, setOpenDeleteModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [editContact, setEditContact] = useState({});
   const [contacts, setContacts] = useState(
@@ -49,11 +49,6 @@ function App() {
     });
   };
 
-  const handlerDeletecontact = (id) => {
-    const filteredContacts = contacts.filter((contact) => contact.id !== id);
-    setContacts(filteredContacts);
-  };
-
   const handlerEditcontact = (contact) => {
     setOpenAddModal((is) => !is);
     setEditContact(contact);
@@ -72,35 +67,40 @@ function App() {
     setContacts((prevContacts) =>
       prevContacts.filter((contact) => !selectedContacts.includes(contact.id))
     );
+    setSelectedContacts([]);
+    setOpenDeleteModal(false);
   };
 
   return (
     <div className="main">
       <Header
         setOpenAddModal={setOpenAddModal}
+        setOpenDeleteModal={setOpenDeleteModal}
+        openDeleteModal={openDeleteModal}
         handleSearchContact={handleSearchContact}
         handleDeleteContacts={handleDeleteContacts}
         setEditContact={setEditContact}
+        selectedContacts={selectedContacts}
       >
         <AddModal
           setContact={setContact}
           contact={contact}
           addHandler={addHandler}
           openAddModal={openAddModal}
-          setOpenModal={setOpenAddModal}
+          setOpenAddModal={setOpenAddModal}
           addAlert={addAlert}
           editContact={editContact}
           setEditContact={setEditContact}
         />
-        {/* <DeleteModal/> */}
       </Header>
 
       <ContactsList
         filteredContacts={filteredContacts}
-        handlerDeletecontact={handlerDeletecontact}
         selectedContacts={selectedContacts}
         setSelectedContacts={setSelectedContacts}
         handlerEditcontact={handlerEditcontact}
+        openDeleteModal={openDeleteModal}
+        setOpenDeleteModal={setOpenDeleteModal}
       />
     </div>
   );

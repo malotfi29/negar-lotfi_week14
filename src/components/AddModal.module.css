@@ -74,23 +74,22 @@
   font-size: 18px;
 }
 
-.modalContent button:hover{
+.modalContent button:hover {
   background-color: var(--mint-light);
   cursor: pointer;
 }
 
-.alert{
-  color:#ee5353;
+.alert {
+  color: #ee5353;
   font-weight: bold;
   margin: 1rem auto;
   width: 100%;
-text-align: center;
+  text-align: center;
 }
 
-
-.error{
-  color:#ec1515;
- font-size: 14px;
+.error {
+  color: #ec1515;
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
