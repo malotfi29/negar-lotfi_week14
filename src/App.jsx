@@ -58,7 +58,7 @@ function App() {
     const value = e.target.value.toLowerCase().trim();
     setFilteredContacts(
       contacts.filter((contact) =>
-        contact.name.toLowerCase().trim().includes(value)
+        contact.name.toLowerCase().trim().includes(value) || contact.email.toLowerCase().trim().includes(value)
       )
     );
   };
