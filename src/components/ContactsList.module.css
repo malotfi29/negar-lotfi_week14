@@ -7,6 +7,13 @@
   border-radius: 8px;
 }
 
+.noContacts{
+  padding: 1rem;
+  color: var(--mint-dark);
+  font-weight: bold;
+  text-align: center;
+}
+
 .contact {
   list-style: none;
   display: grid;

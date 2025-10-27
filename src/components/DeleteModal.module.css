@@ -1,0 +1,22 @@
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    background-color: var(--shadow-soft);
+  }
+  
+  .modal {
+    margin-top: 5rem;
+    width: 98%;
+    min-height: 250px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--mint-gray);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 50px var(--slate-600);
+  }

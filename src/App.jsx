@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import ContactsList from "./components/ContactsList";
 import Header from "./components/Header";
-import Modal from "./components/Modal";
+import AddModal from "./components/AddModal";
+import DeleteModal from "./components/DeleteModal";
 
 function App() {
   const [addAlert, setAddAlert] = useState("");
-  const [openModal, setOpenModal] = useState(false);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [OpenDeleteModal, setOpenDeleteModal] = useState(false);
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [editContact, setEditContact] = useState({});
   const [contacts, setContacts] = useState(
@@ -25,33 +27,25 @@ function App() {
     setFilteredContacts(contacts);
   }, [contacts]);
 
-  const addHandler = (e) => {
-    e.preventDefault();
-    if (!contact.name || !contact.email || !contact.phone || !contact.job) {
-      setAddAlert("Please enter valid data!");
-      return;
-    }
+  const addHandler = (data) => {
     setAddAlert("");
     if (Object.keys(editContact).length > 0) {
       setContacts(
-        contacts.map((c) =>
-          c.id === editContact.id ? { ...c, ...contact } : c
-        )
+        contacts.map((c) => (c.id === editContact.id ? { ...c, ...data } : c))
       );
       setEditContact({});
     } else {
-      const newContact = { ...contact, id: Date.now() };
+      const newContact = { ...data, id: Date.now() };
 
       setContacts((contacts) => [...contacts, newContact]);
     }
-    setOpenModal(false);
+    setOpenAddModal(false);
 
     setContact({
       id: "",
       name: "",
       email: "",
       phone: "",
-      job: "",
     });
   };
 
@@ -61,7 +55,7 @@ function App() {
   };
 
   const handlerEditcontact = (contact) => {
-    setOpenModal((is) => !is);
+    setOpenAddModal((is) => !is);
     setEditContact(contact);
   };
 
@@ -83,21 +77,22 @@ function App() {
   return (
     <div className="main">
       <Header
-        setOpenModal={setOpenModal}
+        setOpenAddModal={setOpenAddModal}
         handleSearchContact={handleSearchContact}
         handleDeleteContacts={handleDeleteContacts}
         setEditContact={setEditContact}
       >
-        <Modal
+        <AddModal
           setContact={setContact}
           contact={contact}
           addHandler={addHandler}
-          openModal={openModal}
-          setOpenModal={setOpenModal}
+          openAddModal={openAddModal}
+          setOpenModal={setOpenAddModal}
           addAlert={addAlert}
           editContact={editContact}
           setEditContact={setEditContact}
         />
+        {/* <DeleteModal/> */}
       </Header>
 
       <ContactsList

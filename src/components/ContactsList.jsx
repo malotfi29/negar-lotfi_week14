@@ -8,6 +8,10 @@ function ContactsList({
   setSelectedContacts,
   handlerEditcontact,
 }) {
+  console.log(filteredContacts);
+  
+  if(filteredContacts.length===0) {
+  return <p className={styles.noContacts}>مخاطبی وجود ندارد!</p>}
   return (
     <ul className={styles.contacts}>
       {filteredContacts.map((contact) => (

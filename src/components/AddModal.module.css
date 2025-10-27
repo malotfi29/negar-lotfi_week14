@@ -87,6 +87,12 @@
 text-align: center;
 }
 
+
+.error{
+  color:#ec1515;
+ font-size: 14px;
+}
+
 @media (min-width: 768px) {
   .modal {
     max-width: 30rem;

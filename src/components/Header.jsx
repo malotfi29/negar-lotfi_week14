@@ -5,14 +5,18 @@ import { BiSelectMultiple } from "react-icons/bi";
 function Header({
   children,
   handleSearchContact,
-  setOpenModal,
+  setOpenAddModal,
+ 
   handleDeleteContacts,
-  setEditContact = { setEditContact },
+  setEditContact,
+ 
 }) {
   const handlerAdd = () => {
-    setOpenModal((is) => !is);
+    setOpenAddModal((is) => !is);
     setEditContact({});
   };
+
+  
 
   return (
     <>
@@ -33,11 +37,11 @@ function Header({
         
         <div className={styles.controls}>
           <div className={styles.controlDelete} onClick={handleDeleteContacts}>
-            <span>Delete Contacts</span>
+            <span>حذف مخاطبین</span>
             <BiSelectMultiple className={styles.btn} />
           </div>
           <div className={styles.controlAdd} onClick={handlerAdd}>
-            <span>Add Contact</span>
+            <span>افزودن مخاطب</span>
             <CiCirclePlus className={styles.btn} />
           </div>
         </div>
