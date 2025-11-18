@@ -2,14 +2,12 @@ import { useEffect } from "react";
 import styles from "./AddModal.module.css";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useForm } from "react-hook-form";
+import { useContact } from "../contexts/ContactContext";
+import { useModal } from "../contexts/Modal";
 
-function AddModal({
-  openAddModal,
-  setOpenAddModal,
-  addHandler,
-  addAlert,
-  editContact,
-}) {
+function AddModal() {
+  const { addHandler, editContact, addAlert} = useContact();
+  const { openAddModal, setOpenAddModal } = useModal();
   const {
     register,
     handleSubmit,
@@ -37,6 +35,14 @@ function AddModal({
   const onSubmit = (data) => {
     addHandler(data);
     reset();
+    setOpenAddModal((is) => !is);
+   
+    reset({
+      name: "",
+      email: "",
+      phone: "",
+      job: "",
+    });
   };
 
   const closeBackdrop = () => {

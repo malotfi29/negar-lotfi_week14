@@ -2,21 +2,15 @@ import styles from "./Header.module.css";
 import { CiCirclePlus } from "react-icons/ci";
 import { BiSelectMultiple } from "react-icons/bi";
 import DeleteModal from "./DeleteModal";
+import { useContact } from "../contexts/ContactContext";
+import { useContacts } from "../contexts/ContactsContext";
+import { useModal } from "../contexts/Modal";
 
-function Header({
-  children,
-  handleSearchContact,
-  setOpenAddModal,
-  setOpenDeleteModal,
-  openDeleteModal,
-  handleDeleteContacts,
-  setEditContact,
-  selectedContacts,
-}) {
-  const handlerAdd = () => {
-    setOpenAddModal((is) => !is);
-    setEditContact({});
-  };
+function Header({ children }) {
+  const { handleSearchContact } = useContacts();
+  const { selectedContacts } = useContact();
+  const { handleOpenAddModal, setOpenDeleteModal, openDeleteModal } =
+    useModal();
 
   const handleOpenModal = () => {
     if (selectedContacts.length === 0) return null;
@@ -27,13 +21,7 @@ function Header({
     <>
       {children}
 
-      {openDeleteModal && (
-        <DeleteModal
-          openDeleteModal={openDeleteModal}
-          setOpenDeleteModal={setOpenDeleteModal}
-          handleDeleteContacts={handleDeleteContacts}
-        />
-      )}
+      {openDeleteModal && <DeleteModal />}
 
       <div className={styles.container}>
         <div className={styles.search}>
@@ -50,7 +38,7 @@ function Header({
             <span>حذف مخاطبین</span>
             <BiSelectMultiple className={styles.btn} />
           </div>
-          <div className={styles.controlAdd} onClick={handlerAdd}>
+          <div className={styles.controlAdd} onClick={handleOpenAddModal}>
             <span>افزودن مخاطب</span>
             <CiCirclePlus className={styles.btn} />
           </div>

@@ -1,13 +1,16 @@
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import styles from "./DeleteModal.module.css";
+import { useContact } from "../contexts/ContactContext";
+import { useModal } from "../contexts/Modal";
 
-function DeleteModal({
-  openDeleteModal,
-  setOpenDeleteModal,
-
-  handleDeleteContacts,
-}) {
+function DeleteModal({}) {
+  const { handleDeleteContacts } = useContact();
+  const { setOpenDeleteModal, openDeleteModal } = useModal();
   const closeModal = () => {
+    setOpenDeleteModal(false);
+  };
+  const handleDelete = () => {
+    handleDeleteContacts();
     setOpenDeleteModal(false);
   };
 
@@ -25,7 +28,7 @@ function DeleteModal({
         </div>
         <h3>آیا از حذف مطمین هستید؟</h3>
         <div className={styles.controls}>
-          <button onClick={handleDeleteContacts}>حذف</button>
+          <button onClick={handleDelete}>حذف</button>
           <button onClick={closeModal}>بازگشت</button>
         </div>
       </div>

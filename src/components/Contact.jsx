@@ -3,16 +3,17 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { MdOutlinePhone } from "react-icons/md";
 import { RiEdit2Fill } from "react-icons/ri";
+import { useContact } from "../contexts/ContactContext";
+import { useModal } from "../contexts/Modal";
 
-function Contact({
-  contact,
-
-  selectedContacts,
-  setSelectedContacts,
-  handlerEditcontact,
-
-  setOpenDeleteModal,
-}) {
+function Contact({ contact }) {
+  const { setEditContact, setSelectedContacts, selectedContacts } =
+    useContact();
+  const { setOpenAddModal, setOpenDeleteModal } = useModal();
+  const handlerEditcontact = () => {
+    setEditContact(contact);
+    setOpenAddModal((is) => !is);
+  };
   return (
     <li className={styles.contact}>
       <div className={styles.contactName}>
