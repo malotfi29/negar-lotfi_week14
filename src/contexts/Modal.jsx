@@ -1,14 +1,14 @@
 import { createContext, useContext, useState } from "react";
-import { useContact } from "./ContactContext";
+
+import { useContacts } from "./ContactsContext";
 
 const ModalContext = createContext();
 function ModalProvider({ children }) {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
-  const { setEditContact } = useContact();
+  const { dispatch } = useContacts();
 
   const handleOpenAddModal = () => {
-    setEditContact({});
     setOpenAddModal((is) => !is);
   };
   return (

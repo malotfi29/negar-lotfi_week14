@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import styles from "./AddModal.module.css";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useForm } from "react-hook-form";
-import { useContact } from "../contexts/ContactContext";
+
 import { useModal } from "../contexts/Modal";
+import { useContacts } from "../contexts/ContactsContext";
 
 function AddModal() {
-  const { addHandler, editContact, addAlert} = useContact();
+  const { addHandler, editContact, dispatch } = useContacts();
   const { openAddModal, setOpenAddModal } = useModal();
   const {
     register,
@@ -34,18 +35,18 @@ function AddModal() {
 
   const onSubmit = (data) => {
     addHandler(data);
-    reset();
-    setOpenAddModal((is) => !is);
-   
     reset({
       name: "",
       email: "",
       phone: "",
       job: "",
     });
+
+    setOpenAddModal((is) => !is);
   };
 
   const closeBackdrop = () => {
+    dispatch({ type: "EDIT_CONTACT", payload: {} });
     setOpenAddModal(false);
     reset({
       name: "",
@@ -122,7 +123,7 @@ function AddModal() {
           </button>
         </form>
 
-        <div className={styles.alert}>{addAlert && <p>{addAlert}</p>}</div>
+        {/* <div className={styles.alert}>{addAlert && <p>{addAlert}</p>}</div> */}
       </div>
     </>
   );

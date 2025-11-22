@@ -3,15 +3,16 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { MdOutlinePhone } from "react-icons/md";
 import { RiEdit2Fill } from "react-icons/ri";
-import { useContact } from "../contexts/ContactContext";
+
 import { useModal } from "../contexts/Modal";
+import { useContacts } from "../contexts/ContactsContext";
 
 function Contact({ contact }) {
-  const { setEditContact, setSelectedContacts, selectedContacts } =
-    useContact();
+  const { dispatch, addHandler } = useContacts();
   const { setOpenAddModal, setOpenDeleteModal } = useModal();
+
   const handlerEditcontact = () => {
-    setEditContact(contact);
+    dispatch({ type: "EDIT_CONTACT", payload: contact });
     setOpenAddModal((is) => !is);
   };
   return (
@@ -20,7 +21,7 @@ function Contact({ contact }) {
         <input
           type="checkbox"
           onChange={() =>
-            setSelectedContacts([...selectedContacts, contact.id])
+            dispatch({ type: "ADD_SELECTED", payload: contact.id })
           }
         />
         <p>{contact.name}</p>
@@ -38,7 +39,7 @@ function Contact({ contact }) {
           className={styles.btnTrash}
           onClick={() => {
             setOpenDeleteModal(true);
-            setSelectedContacts([...selectedContacts, contact.id]);
+            dispatch({ type: "ADD_SELECTED", payload: contact.id });
           }}
         />
 

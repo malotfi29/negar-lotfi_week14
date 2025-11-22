@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "id": "dfcd",
+      "name": "negar",
+      "email": "ma.lotfi29@gmail.com",
+      "phone": "0919000000",
+      "job": ""
+    },
+    {
+      "id": "2ab9",
+      "name": "Ali",
+      "email": "Ali@gmail.com",
+      "phone": "09120000000",
+      "job": ""
+    }
+  ]
+}

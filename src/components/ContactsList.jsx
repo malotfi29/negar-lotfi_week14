@@ -1,16 +1,25 @@
+import { useEffect, useState } from "react";
 import { useContacts } from "../contexts/ContactsContext";
 import Contact from "./Contact";
 import styles from "./ContactsList.module.css";
+import Loading from "./Loading";
 
 function ContactsList({}) {
-  const { filteredContacts, contacts, setContacts } = useContacts();
+  const { contacts, filteredContacts } = useContacts();
+  const [displayed, setDisplayed] = useState([]);
 
-  if (filteredContacts.length === 0) {
-    return <p className={styles.noContacts}>مخاطبی وجود ندارد!</p>;
-  }
+  useEffect(() => {
+    setDisplayed(contacts);
+  }, [contacts]);
+
+  useEffect(() => {
+    setDisplayed(filteredContacts);
+  }, [filteredContacts]);
+
   return (
     <ul className={styles.contacts}>
-      {filteredContacts.map((contact) => (
+      {!displayed && <p>مخاطبی وجود ندارد</p>}
+      {displayed.map((contact) => (
         <Contact key={contact.id} contact={contact} />
       ))}
     </ul>

@@ -2,19 +2,23 @@ import styles from "./Header.module.css";
 import { CiCirclePlus } from "react-icons/ci";
 import { BiSelectMultiple } from "react-icons/bi";
 import DeleteModal from "./DeleteModal";
-import { useContact } from "../contexts/ContactContext";
-import { useContacts } from "../contexts/ContactsContext";
+
 import { useModal } from "../contexts/Modal";
+import { useContacts } from "../contexts/ContactsContext";
 
 function Header({ children }) {
-  const { handleSearchContact } = useContacts();
-  const { selectedContacts } = useContact();
+  const { selectedContacts, handleSearchContact, dispatch } = useContacts();
   const { handleOpenAddModal, setOpenDeleteModal, openDeleteModal } =
     useModal();
 
   const handleOpenModal = () => {
     if (selectedContacts.length === 0) return null;
     setOpenDeleteModal(true);
+  };
+
+  const addHandler = () => {
+    dispatch({ type: "EDIT_CONTACT", payload: {} });
+    handleOpenAddModal();
   };
 
   return (
@@ -38,7 +42,7 @@ function Header({ children }) {
             <span>حذف مخاطبین</span>
             <BiSelectMultiple className={styles.btn} />
           </div>
-          <div className={styles.controlAdd} onClick={handleOpenAddModal}>
+          <div className={styles.controlAdd} onClick={addHandler}>
             <span>افزودن مخاطب</span>
             <CiCirclePlus className={styles.btn} />
           </div>
