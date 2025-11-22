@@ -34,9 +34,11 @@ npm install
 
 ### Add page
 <img width="1425" height="772" alt="add-page" src="https://github.com/user-attachments/assets/db694068-0fc6-41cf-b03c-aa805ae33bc8" />
+
 ### Edit page
 <img width="1483" height="751" alt="edit-page" src="https://github.com/user-attachments/assets/9b858742-ea24-464b-aaf2-cf2d5fe6540c" />
-### delete modal
+
+### Delete modal
 <img width="1506" height="677" alt="remove-modal" src="https://github.com/user-attachments/assets/364b17ac-c3c5-4ea6-80d0-d40477187e44" />
 
 
