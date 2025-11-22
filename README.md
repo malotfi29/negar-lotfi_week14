@@ -1,16 +1,31 @@
-# React + Vite
+# Contacts App
+An application to save contacts with their mobile numbers and emails.You can add,delete,edit and search a contact.
+This is a very simple App created with React and used a basic Api to save contacts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Search for contact using name or email
+- Add a new contact
+- Delete an existing contact
+- Delete some contacts together
+- Edit an existing contact
+- Responsive design for both desktop and mobile devices
 
-Currently, two official plugins are available:
+## Instalation
+1. Clone the repository
+   ```bash
+   https://github.com/malotfi29/giahland.git
+   ```
+2. Install dependencies 
+```bash 
+npm install
+```
+3. Run server in terminal with `npm run server`
+4. Run application in terminal with `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Screenshots
+### Main Page
+![mainpage](https://github.com/user-attachments/assets/30b623cc-cede-4f6d-b834-e1ffbe6752e2)
+### Cart page
+![cartpage](https://github.com/user-attachments/assets/44299b7c-ce37-4aaf-a22c-384a7fe2162a)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
