@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 
 import { useModal } from "../contexts/Modal";
 import { useContacts } from "../contexts/ContactsContext";
+import Input from "./Input";
 
 function AddModal() {
   const { addHandler, editContact, dispatch } = useContacts();
@@ -72,58 +73,49 @@ function AddModal() {
         </div>
 
         <form className={styles.modalContent} onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label htmlFor="name">نام و نام خانوادگی</label>
-            <input
-              id="name"
-              {...register("name", { required: "نام الزامی است" })}
-            />
-            {errors.name && (
-              <p className={styles.error}>{errors.name.message}</p>
-            )}
-          </div>
+          <Input
+            name="name"
+            required
+            label="نام و نام خانوادگی"
+            register={register}
+            validation={{ required: "نام الزامی است" }}
+            errors={errors}
+          />
 
-          <div>
-            <label htmlFor="email">ایمیل</label>
-            <input
-              id="email"
-              type="email"
-              {...register("email", {
-                required: "ایمیل الزامی است",
-                pattern: {
-                  value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                  message: "فرمت ایمیل اشتباه است",
-                },
-              })}
-            />
-            {errors.email && (
-              <p className={styles.error}>{errors.email.message}</p>
-            )}
-          </div>
+          <Input
+            name="email"
+            required
+            label="ایمیل"
+            register={register}
+            validation={{
+              required: "ایمیل الزامی است",
+              pattern: {
+                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                message: "فرمت ایمیل اشتباه است",
+              },
+            }}
+            errors={errors}
+          />
 
-          <div>
-            <label htmlFor="phone">تلفن</label>
-            <input
-              id="phone"
-              {...register("phone", {
-                required: "تلفن الزامی است",
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: "شماره تلفن باید فقط عدد باشد",
-                },
-              })}
-            />
-            {errors.phone && (
-              <p className={styles.error}>{errors.phone.message}</p>
-            )}
-          </div>
+          <Input
+            name="phone"
+            required
+            label="شماره تماس"
+            register={register}
+            validation={{
+              required: "شماره تماس الزامی است",
+              pattern: {
+                value: /^[0-9]+$/,
+                message: "شماره تلفن باید فقط عدد باشد",
+              },
+            }}
+            errors={errors}
+          />
 
           <button type="submit">
             {lengthOfEditContact ? "ویرایش" : "افزودن"}
           </button>
         </form>
-
-        {/* <div className={styles.alert}>{addAlert && <p>{addAlert}</p>}</div> */}
       </div>
     </>
   );

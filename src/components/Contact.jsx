@@ -42,7 +42,6 @@ function Contact({ contact }) {
             dispatch({ type: "ADD_SELECTED", payload: contact.id });
           }}
         />
-
         <RiEdit2Fill
           className={styles.btnEdit}
           onClick={() => {
