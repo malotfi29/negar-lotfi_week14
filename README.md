@@ -30,7 +30,8 @@ npm install
 
 ## Screenshots
 ### Main Page
-![mainpage](<img width="1395" height="770" alt="main-page" src="https://github.com/user-attachments/assets/c5c5c8f8-fc72-4012-a98c-62a3278c94e8" />
+![mainpage](<img width="1395" height="770" alt="main-page" src="https://github.com/user-attachments/assets/7957c6f2-9a88-4d19-b765-896620018760" />
+
 )
 ### Cart page
 ![cartpage](https://github.com/user-attachments/assets/44299b7c-ce37-4aaf-a22c-384a7fe2162a)
