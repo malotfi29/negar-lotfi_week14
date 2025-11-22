@@ -6,9 +6,10 @@ import { RiEdit2Fill } from "react-icons/ri";
 
 import { useModal } from "../contexts/Modal";
 import { useContacts } from "../contexts/ContactsContext";
+import shortText from "../helper/shortText";
 
 function Contact({ contact }) {
-  const { dispatch, addHandler } = useContacts();
+  const { dispatch} = useContacts();
   const { setOpenAddModal, setOpenDeleteModal } = useModal();
 
   const handlerEditcontact = () => {
@@ -24,11 +25,11 @@ function Contact({ contact }) {
             dispatch({ type: "ADD_SELECTED", payload: contact.id })
           }
         />
-        <p>{contact.name}</p>
+        <p>{shortText(contact.name,5)}</p>
       </div>
       <p p className={styles.contactEmail}>
         <MdOutlineMarkEmailUnread className={styles.btn} />
-        {contact.email}
+        {shortText(contact.email,10)}
       </p>
       <p className={styles.contactPhone}>
         <MdOutlinePhone className={styles.btn} />

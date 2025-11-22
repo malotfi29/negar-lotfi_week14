@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { useModal } from "../contexts/Modal";
 import { useContacts } from "../contexts/ContactsContext";
 import Input from "./Input";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { contactSchema } from "../helper/contactSchema";
 
 function AddModal() {
   const { addHandler, editContact, dispatch } = useContacts();
@@ -16,6 +18,7 @@ function AddModal() {
     reset,
     formState: { errors },
   } = useForm({
+    resolver: yupResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -75,40 +78,22 @@ function AddModal() {
         <form className={styles.modalContent} onSubmit={handleSubmit(onSubmit)}>
           <Input
             name="name"
-            required
             label="نام و نام خانوادگی"
             register={register}
-            validation={{ required: "نام الزامی است" }}
             errors={errors}
           />
 
           <Input
             name="email"
-            required
             label="ایمیل"
             register={register}
-            validation={{
-              required: "ایمیل الزامی است",
-              pattern: {
-                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                message: "فرمت ایمیل اشتباه است",
-              },
-            }}
             errors={errors}
           />
 
           <Input
             name="phone"
-            required
             label="شماره تماس"
             register={register}
-            validation={{
-              required: "شماره تماس الزامی است",
-              pattern: {
-                value: /^[0-9]+$/,
-                message: "شماره تلفن باید فقط عدد باشد",
-              },
-            }}
             errors={errors}
           />
 
