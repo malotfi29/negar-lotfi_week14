@@ -13,14 +13,19 @@ This is a very simple App created with React and used a basic Api to save contac
 ## Instalation
 1. Clone the repository
    ```bash
-   https://github.com/malotfi29/giahland.git
+   https://github.com/malotfi29/negar-lotfi_week14.git
    ```
-2. Install dependencies 
+2.Go to Api-version branch
+  ```bash
+    git checkout Api-version
+  ```
+
+3. Install dependencies 
 ```bash 
 npm install
 ```
-3. Run server in terminal with `npm run server`
-4. Run application in terminal with `npm run dev`
+4. Run server in terminal with `npm run server`
+5. Run application in terminal with `npm run dev`
 
 
 ## Screenshots
